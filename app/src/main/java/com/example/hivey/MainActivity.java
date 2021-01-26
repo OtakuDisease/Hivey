@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Contact or follow us on our Instagram: @hivey_official", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         // If a bluetooth device has been selected from SelectDeviceActivity
         deviceName = getIntent().getStringExtra("deviceName");
         if (deviceName != null) {
+
             // Get the device address to make BT Connection
             deviceAddress = getIntent().getStringExtra("deviceAddress");
             // Show progress and connection status
@@ -94,6 +95,10 @@ public class MainActivity extends AppCompatActivity {
             createConnectThread = new CreateConnectThread(bluetoothAdapter, deviceAddress);
             createConnectThread.start();
         }
+        else {
+Log.d("Henk", "DOet het niet");
+        }
+
 
          /*
         Second most important piece of Code. GUI Handler
@@ -102,8 +107,10 @@ public class MainActivity extends AppCompatActivity {
             @SuppressLint("SetTextI18n")
             @Override
             public void handleMessage(Message msg) {
+                Log.d("Henk", "Jow");
                 switch (msg.what) {
                     case CONNECTING_STATUS:
+                        Log.d("Henk", msg.arg1+"");
                         switch (msg.arg1) {
                             case 1:
                                 toolbar.setSubtitle("Connected to " + deviceName);
@@ -125,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
                         humidity.setText("Humidity: " + separated[0]);
                         temperature.setText("Temparature: " + separated[1]);
                         bees.setText("Bees: " + separated[2]);
+                        Log.d("Henk", separated[0]);
                 }
             }
         };

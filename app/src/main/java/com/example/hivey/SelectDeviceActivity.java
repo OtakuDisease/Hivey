@@ -24,7 +24,6 @@ public class SelectDeviceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_device);
-
         // Bluetooth Setup
         BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
@@ -50,10 +49,10 @@ public class SelectDeviceActivity extends AppCompatActivity {
             Snackbar snackbar = Snackbar.make(view, "Activate Bluetooth or pair a Bluetooth device", Snackbar.LENGTH_INDEFINITE);
             snackbar.setAction("OK", new View.OnClickListener() {
                 @Override
-                public void onClick(View view) { }
+                public void onClick(View view) {
+                }
             });
             snackbar.show();
         }
-
     }
 }

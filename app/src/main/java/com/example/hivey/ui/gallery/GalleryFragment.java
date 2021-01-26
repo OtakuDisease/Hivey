@@ -16,6 +16,7 @@ import com.example.hivey.R;
 
 public class GalleryFragment extends Fragment {
 
+    TextView Bees;
     private GalleryViewModel galleryViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -23,7 +24,7 @@ public class GalleryFragment extends Fragment {
         galleryViewModel =
                 new ViewModelProvider(this).get(GalleryViewModel.class);
         View root = inflater.inflate(R.layout.fragment_gallery, container, false);
-        final TextView Bees = root.findViewById(R.id.Bees);
+        Bees = root.findViewById(R.id.Bees);
         //final TextView humidity = root.findViewById(R.id.humidity);
         //final TextView temperature = root.findViewById(R.id.temperature);
         galleryViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
